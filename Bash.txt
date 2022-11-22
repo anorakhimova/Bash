@@ -1,0 +1,154 @@
+Задание№1.
+
+1. anora@Silver:~$ pwd
+/home/anora
+2. anora@Silver:~$ mkdir test1
+anora@Silver:~$ pwd
+/home/anora
+3. anora@Silver:~$ cd ~/test1
+anora@Silver:~/test1$
+4. anora@Silver:~/test1$ touch file1.txt
+anora@Silver:~/test1$ touch file2.txt
+anora@Silver:~/test1$ touch file3.txt
+5. anora@Silver:~/test1$ ls -a
+.  ..  file1.txt  file2.txt  file3.txt
+6. anora@Silver:~/test1$ cd ~
+anora@Silver:~$ mkdir test2
+7. anora@Silver:~$ mkdir test2
+8. anora@Silver:~$ rmdir test2
+9. anora@Silver:~$ cd ~/test1
+anora@Silver:~/test1$ rm file2.txt
+10. anora@Silver:~/test1$ cd ~
+anora@Silver:~$ mkdir test3
+anora@Silver:~$ cd ~/test3
+anora@Silver:~/test3$ touch file4.txt
+anora@Silver:~/test3$ touch file5.txt
+anora@Silver:~/test3$ ls -a
+.  ..  file4.txt  file5.txt
+11.anora@Silver:~$ ls -a
+ .   ..   .bash_history   .bash_logout   .bashrc   .lesshst   .motd_shown   .profile  'file 2'   test   test1   test3
+anora@Silver:~$ rm -R test3
+anora@Silver:~$ ls -a
+ .   ..   .bash_history   .bash_logout   .bashrc   .lesshst   .motd_shown   .profile  'file 2'   test   test1
+12. anora@Silver:~$ mkdir test4
+13. anora@Silver:~$ mv test1/file1.txt test4
+anora@Silver:~$ mv test1/file3.txt test4
+anora@Silver:~$ cd ~/test4
+anora@Silver:~/test4$ ls -a
+.  ..  file1.txt  file3.txt
+14. anora@Silver:~/test4$ nano file1.txt
+anora@Silver:~/test4$ cat file1.txt
+line
+line
+line
+15. anora@Silver:~/test4$ nano file3.txt
+16. anora@Silver:~/test4$ cat file1.txt file3.txt
+line
+line
+line
+
+line
+line
+line
+17. anora@Silver:~/test4$ nano file1.txt
+anora@Silver:~/test4$ nano file3.txt
+anora@Silver:~/test4$ cat file1.txt file3.txt
+line1
+line2
+line3
+
+line4
+line5
+line6
+
+Задание№2
+1. anora@Silver:~$ mkdir test3
+2.
+anora@Silver:~$ cd ~/test3
+anora@Silver:~/test3$ touch file4.txt
+anora@Silver:~/test3$ touch file5.txt
+anora@Silver:~/test3$ touch file6.txt
+anora@Silver:~/test3$ ls -a
+.  ..  file4.txt  file5.txt  file6.txt
+anora@Silver:~/test3$ nano file4.txt
+anora@Silver:~/test3$ nano file5.txt
+anora@Silver:~/test3$ nano file6.txt
+3. anora@Silver:~/test3$ grep row file5.txt
+row1
+row2
+row3
+row4
+4. anora@Silver:~/test3$ cd ~
+anora@Silver:~$ grep -R row test3
+test3/file5.txt:row1
+test3/file5.txt:row2
+test3/file5.txt:row3
+test3/file5.txt:row4
+test3/file6.txt:row1
+test3/file6.txt:row2
+test3/file6.txt:row3
+test3/file6.txt:row4
+test3/file4.txt:row1
+test3/file4.txt:row2
+test3/file4.txt:row3
+test3/file4.txt:row4
+5. anora@Silver:~$ cd ~/test3
+anora@Silver:~/test3$ grep -c row file6.txt
+4
+6. anora@Silver:~/test3$ find -name file5.txt
+./file5.txt
+7.anora@Silver:~/test3$ find . -name file4.txt -delete -print
+./file4.txt
+anora@Silver:~/test3$ ls -a
+.  ..  file5.txt  file6.txt
+8. anora@Silver:~/test3$ echo test
+test
+anora@Silver:~/test3$ echo test > file5.txt
+anora@Silver:~/test3$ cat file5.txt
+test
+9.anora@Silver:~/test3$ echo fail
+fail
+anora@Silver:~/test3$ echo fail > file5.txt
+anora@Silver:~/test3$ cat file5.txt
+fail
+10. anora@Silver:~/test3$ echo test >> file5.txt
+anora@Silver:~/test3$ cat file5.txt
+fail
+test
+11. anora@Silver:~$ ps x
+  PID TTY      STAT   TIME COMMAND
+   10 pts/0    Ss     0:00 -bash
+   45 pts/0    R+     0:00 ps x
+12. anora@Silver:~$ ps u
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+anora       10  0.0  0.1   6080  5132 pts/0    Ss   13:32   0:00 -bash
+anora       46  0.0  0.0   7476  3284 pts/0    R+   13:33   0:00 ps u
+anora@Silver:~$ kill 46
+-bash: kill: (46) - No such process
+13. anora@Silver:~$ ping  artsiomrusau.com
+PING artsiomrusau.com (185.215.4.92) 56(84) bytes of data.
+^C
+--- artsiomrusau.com ping statistics ---
+89 packets transmitted, 0 received, 100% packet loss, time 91513ms
+14. anora@Silver:~$ ping -c 5 artsiomrusau.com
+PING artsiomrusau.com (185.215.4.92) 56(84) bytes of data.
+
+--- artsiomrusau.com ping statistics ---
+5 packets transmitted, 0 received, 100% packet loss, time 4180ms
+15. anora@Silver:~$ curl https://petstore.swagger.io/v2/pet/1209
+{"id":1209,"category":{"id":1209,"name":"doggie"},"name":"sunny","photoUrls":["string"],"tags":[{"id":1209,"name":"corgie"}],"status":"available"}
+
+anora@Silver:~$ curl https://petstore.swagger.io/v2/pet/findByStatus?status=sold
+[{"id":8514,"category":{"id":0,"name":"dogs"},"name":"Abel_Kerluke55","photoUrls":["some photo"],"tags":[{"id":0,"name":"black"}],"status":"sold"},{"id":444,"category":{"id":444,"name":"Cat"},"name":"Kitty Cat","photoUrls":["string"],"tags":[{"id":444,"name":"string"}],"status":"sold"},{"id":3904,"category":{"id":0,"name":"dogs"},"name":"Oma8","photoUrls":["some photo"],"tags":[{"id":0,"name":"black"}],"status":"sold"},{"id":9223372036854256618,"name":"","photoUrls":[],"tags":[],"status":"sold"},{"id":9223372036854256630,"category":{"id":0},"name":"5","photoUrls":[],"tags":[],"status":"sold"},{"id":9223372036854256636,"name":"","photoUrls":["\uD803\uDD01"],"tags":[],"status":"sold"},{"id":9223372036854256637,"category":{"id":115},"name":" ´","photoUrls":["\uDA55\uDFB6\u000F\uDBFE\uDCFB"],"tags":[],"status":"sold"},{"id":9223372036854256645,"name":"","photoUrls":["kð\uD94F\uDF17\uD84F\uDED2\uD82D\uDC00JR\uD919\uDDBFûb","ÝÀ","îçh*Íñ\uDB0D\uDE55»Â\uDAB9\uDDE7>\uDB7F\uDD95\uD8DD\uDFAAiÁ§³¤Ï\uD942\uDE2F","\uD906\uDF122Õ2¸,"tags":[],"status":"sold"},{"id":120412660,"category":{"id":939817832},"name":"뎲j\u0005$P","photoUrls":["\uD972\uDF72\uD9A2\uDE6A뎟\u001B\uDBF8\uDDC0\uD810\uDCDF²«\uD912\uDD0D\u0014\uD8D2\uDEFE¨DG\u001FöBs","\u0017ëæ"],"tags":[{"id":0},{"id":-24718},{"id":2}],"status":"sold"},{"id":9223372036854256667,"category":{"id":0},"name":"","photoUrls":["ÀHÁ
+m×","Rp6\uDB77\uDDC0¶¥Q","ö¡çqa\u0001","8ÑbÔë#\uD8CA\uDC0ABâ\uDAAD\uDF06","\uDBB7\uDC629喝^","","¾","\uDBB7\uDE45¾ß","cþ:2{ì"],"tags":[],"status":"sold"},{"id":9223372036854256669,"name":"","photoUrls":[""],"tags":[],"status":"sold"},{"id":9223372036854256672,"name":"","photoUrls":[""],"tags":[],"status":"sold"},{"id":9223372036854256673,"category":{"id":0},"name":"","photoUrls":[],"tags":[],"status":"sold"},{"id":27,"category":{"id":71,"name":"randomString"},"name":"test4","photoUrls":[],"status":"sold"},{"id":8520,"category":{"id":0,"name":"dogs"},"name":"Mandy.Powlowski","photoUrls":["some photo"],"tags":[{"id":0,"name":"black"}],"status":"sold"},{"id":19467,"name":"見響见响仮仏!$%&()*+,-ƄƅƆḞḟṀʶʷʸăĄą","photoUrls":["https://petstore3.swagger.io/resources/photos/623389095.jpg"],"tags":[],"status":"sold"},{"id":59,"category":{"id":14,"name":"randomString"},"name":"test4","photoUrls":[],"status":"sold"},{"id":19,"category":{"id":53,"name":"randomString"},"name":"test4","photoUrls":[],"status":"sold"},{"id":96,"category":{"id":40,"name":"randomString"},"name":"test4","photoUrls":[],"status":"sold"},{"id":504998825,"category":{"id":-62105314,"name":"est reprehenderit dolor ipsum"},"name":"executing from test","photoUrls":["sint quis elit et in","ullamco Ut do deserunt mollit"],"tags":[{"id":-21699130,"name":"ullamco qui"},{"id":34531062,"name":"labore nostrud"}],"status":"sold"},{"id":6508,"category":{"id":19844,"name":"¢},"name":"","photoUrls":["","","L·","\u0011þáÀ#","*M¯
+16.anora@Silver:~$ curl -H 'Content-Type: application/json' --data '{
+>   "id": "0809",
+>   "username": "Ann",
+>   "firstName": "A",
+>   "lastName": "Bee",
+>   "email": "876@mail.ru",
+>   "password": "321",
+>   "phone": "097",
+>   "userStatus": "1"
+> }' https://petstore.swagger.io/v2/user
+{"code":200,"type":"unknown","message":"809"}
